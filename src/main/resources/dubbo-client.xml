@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+       default-lazy-init="true">
+
+
+    <description>dubbo-client</description>
+    
+    <!-- 司机任务 dubbo调用 -->
+    <dubbo:reference id="driverReturnTaskService" interface="com.bj58.suyun.driver.task.api.DriverReturnTaskService" version="1.0.0" registry="suyun_dubbo_service" check="false"  />
+    <dubbo:reference id="newDriverTaskService" interface="com.bj58.suyun.driver.task.api.NewDriverTaskService" version="1.0.0" registry="suyun_dubbo_service" check="false"  />
+    <dubbo:reference id="exclusiveOrderTaskService" interface="com.bj58.suyun.driver.task.api.ExclusiveOrderTaskService" version="1.0.0" registry="suyun_dubbo_service" check="false"  />
+    
+</beans>

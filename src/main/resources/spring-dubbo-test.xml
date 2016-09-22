@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+               http://www.springframework.org/schema/beans/spring-beans.xsd
+               http://www.springframework.org/schema/context
+               http://www.springframework.org/schema/context/spring-context.xsd
+			   http://code.alibabatech.com/schema/dubbo
+			   http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+               http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd"
+        >
+    <!-- consumer application name -->
+    <dubbo:application name="huoyunappservice"/>
+    <!-- registry address, used for consumer to discover services -->
+	
+	<dubbo:registry protocol="zookeeper" address="zktest1.service.djdns.cn:2181,zktest2.service.djdns.cn:2181,zktest3.service.djdns.cn:2181" group="suyun_services_stable" id="suyun_dubbo_service" timeout="5000" session="60000" version="1.0"/> 
+	
+    <import resource="classpath*:dubbo-client.xml" />
+    <!-- connect timeout -->
+    <dubbo:consumer timeout="6000" retries="2" check="false"/>
+</beans>
